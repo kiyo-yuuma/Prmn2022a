@@ -5,24 +5,22 @@ public class MathGrades {
 
     public static void main(String[] args) {
 
-        // メソッドがstaticではないためインスタンスを生成
-        MathGrades mg = new MathGrades();
-
         int[] score = {41,85,72,38,80};
 
         for (int i = 0;i < score.length;i++) {
-            System.out.printf("%d番 %d点 %s\n", i, score[i], mg.grade(score[i]));
+            System.out.printf("%d番 %d点 %s\n", i, score[i], grade(score[i]));
         }
 
         System.out.println("・・・・・");
-        System.out.println("最高点:" + mg.max(score) + "点");
-        System.out.println("最低点:" + mg.min(score) + "点");
-        System.out.println("平均点:" + mg.average(score) + "点");
+        System.out.println("最高点:" + max(score) + "点");
+        System.out.println("最低点:" + min(score) + "点");
+        System.out.println("平均点:" + average(score) + "点");
         System.out.println("・・・・・");
 
     }
 
-    int max(int[] score) {
+    // 最高点を返す
+    static int max(int[] score) {
         int max = score[0];
 
         for (int s: score) {
@@ -32,7 +30,8 @@ public class MathGrades {
         return max;
     }
 
-    int min(int[] score) {
+    // 最低点を返す
+    static int min(int[] score) {
         int min = score[0];
 
         for (int s: score) {
@@ -42,7 +41,8 @@ public class MathGrades {
         return min;
     }
 
-    double average(int[] score) {
+    // 平均点を返す
+    static double average(int[] score) {
         double ave = 0;
 
         for (int s: score) {
@@ -52,7 +52,8 @@ public class MathGrades {
         return ave / score.length;
     }
 
-    String grade(int score) {
+    // 得点から評定を返す
+    static String grade(int score) {
         if (score >= 90) return "秀";
         else if (score >= 80) return "優";
         else if (score >= 70) return "良";
