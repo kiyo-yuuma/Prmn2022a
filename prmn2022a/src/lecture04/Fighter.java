@@ -7,6 +7,10 @@ public class Fighter {
     private String name;
 
     Fighter(int hitPoint, int power, String name) {
+        // 最初からhitPointが0以下では戦うことができないため
+        if (hitPoint <= 0) {
+            hitPoint = 100;
+        }
         this.hitPoint = hitPoint;
         this.power = power;
         this.name = name;
